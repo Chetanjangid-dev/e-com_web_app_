@@ -1,28 +1,20 @@
-/**
- * db/index.js — PostgreSQL connection pool
- *
- * A single Pool instance is shared across the whole application.
- * Calling pool.query() is safe to do from any module.
- */
-
 const { Pool } = require('pg');
 
+// Render aur Neon ke liye DATABASE_URL best hai
+const isProduction = process.env.NODE_ENV === 'production';
+
 const pool = new Pool({
-  host:     process.env.DB_HOST     || 'localhost',
-  port:     Number(process.env.DB_PORT) || 5432,
-  database: process.env.DB_NAME     || 'maison_luxe',
-  user:     process.env.DB_USER     || 'postgres',
-  password: process.env.DB_PASSWORD || '',
-  // Keep a small pool — adequate for a typical dev/prod setup.
-  max:      10,
-  idleTimeoutMillis: 30_000,
-  connectionTimeoutMillis: 2_000,
+  connectionString: process.env.DATABASE_URL,
+  // SSL zaroori hai Neon cloud ke liye
+  ssl: isProduction ? { rejectUnauthorized: false } : false,
+  max: 10,
+  idleTimeoutMillis: 30000,
+  connectionTimeoutMillis: 2000,
 });
 
-// Validate connectivity on startup (non-fatal warning if DB is temporarily down).
 pool.connect((err, _client, release) => {
   if (err) {
-    console.error('⚠️  PostgreSQL connection error:', err.message);
+    console.error('⚠️  PostgreSQL connection error:', err.stack);
   } else {
     console.log('✅  PostgreSQL connected');
     release();

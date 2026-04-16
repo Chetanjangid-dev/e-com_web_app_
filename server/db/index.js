@@ -5,11 +5,10 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  // SSL zaroori hai Neon cloud ke liye
   ssl: isProduction ? { rejectUnauthorized: false } : false,
   max: 10,
   idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 2000,
+  connectionTimeoutMillis: 10000, // Ise badha kar 10 sec kar diya
 });
 
 pool.connect((err, _client, release) => {

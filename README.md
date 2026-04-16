@@ -1,4 +1,4 @@
-# Maison Luxe — Full-Stack PERN-s App
+# Maison Luxe — Full-Stack PERN App
 # try it out here 🔗
 https://e-com-web-app-six.vercel.app/
 > React + Vite frontend · Node.js + Express backend · PostgreSQL database

@@ -1,5 +1,6 @@
-# Maison Luxe — Full-Stack MERN-style App
-
+# Maison Luxe — Full-Stack PERN-s App
+# try it out here 🔗
+https://e-com-web-app-six.vercel.app/
 > React + Vite frontend · Node.js + Express backend · PostgreSQL database
 
 ---
@@ -36,10 +37,10 @@ maison-luxe/
 │   │   ├── cart.routes.js
 │   │   └── orders.routes.js
 │   ├── index.js                # Express entry point
-│   ├── .env                    # Secrets — do not commit
+│  
 │   └── package.json
 │
-├── .env                        # VITE_API_URL for the frontend
+├                      
 └── package.json                # Frontend deps
 ```
 

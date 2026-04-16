@@ -1,0 +1,126 @@
+/* ─── Google Fonts ─────────────────────────────────────────────────────────── */
+/* Already loaded in index.html. Fallbacks defined in token layer below. */
+
+/* ─── Design Tokens ─────────────────────────────────────────────────────────── */
+:root {
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --ink:          #1c1917;
+  --cream:        #faf9f7;
+  --paper:        #f0ede8;
+  --border:       #e8e3dc;
+  --muted:        #78716c;
+  --white:        #ffffff;
+
+  --gold:         #b8924a;
+  --gold-light:   #d4ac6e;
+
+  --success:      #2d6a4f;
+  --danger:       #c0392b;
+
+  --radius-sm:    4px;
+  --radius-md:    6px;
+  --radius-lg:    10px;
+
+  --shadow-sm:    0 2px 12px rgba(28, 25, 23, 0.07);
+  --shadow-md:    0 6px 28px rgba(28, 25, 23, 0.11);
+  --shadow-lg:    0 12px 48px rgba(28, 25, 23, 0.14);
+
+  --transition:   0.2s ease;
+  --nav-height:   60px;
+}
+
+/* ─── Reset ──────────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+input,
+textarea {
+  font-family: var(--font-body);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ─── Page Wrapper ───────────────────────────────────────────────────────────── */
+main {
+  min-height: calc(100vh - var(--nav-height));
+}
+
+/* ─── Animations ─────────────────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes badgePop {
+  0%   { transform: scale(0.4); }
+  60%  { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0);    }
+}
+
+/* ─── Utility Classes ────────────────────────────────────────────────────────── */
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+.animate-fadeUp {
+  animation: fadeUp 0.35s ease both;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

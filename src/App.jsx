@@ -5,6 +5,10 @@ import ProductDetail from './pages/ProductDetail/ProductDetail';
 import Cart from './pages/Cart/Cart';
 import Auth from './pages/Auth/Auth';
 import NotFound from './pages/NotFound/NotFound';
+import AdminPanel from './pages/AdminPanel';
+
+// Routes ke andar:
+
 
 export default function App() {
   return (
@@ -12,6 +16,7 @@ export default function App() {
       <Navbar />
       <main>
         <Routes>
+          <Route path="/admin-control" element={<AdminPanel />} />
           <Route path="/"              element={<Home />} />
           <Route path="/product/:id"  element={<ProductDetail />} />
           <Route path="/cart"         element={<Cart />} />

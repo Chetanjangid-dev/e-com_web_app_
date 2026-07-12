@@ -1,0 +1,886 @@
+/* ═══════════════════════════════════════════════════════════════════
+   Maison Luxe — Admin Panel CSS
+   Luxury, Minimalist, Dark Theme (Gold / Black / White)
+   Font: Cormorant Garamond (display) + system-ui (UI)
+   ═══════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* ── Variables ──────────────────────────────────────────────────── */
+:root {
+  --gold:         #c9a84c;
+  --gold-light:   #e8c97a;
+  --gold-muted:   rgba(201,168,76,0.15);
+  --black:        #0a0a0a;
+  --surface:      #111111;
+  --surface2:     #181818;
+  --surface3:     #222222;
+  --border:       rgba(255,255,255,0.07);
+  --border-gold:  rgba(201,168,76,0.25);
+  --text:         #e8e0d0;
+  --text-muted:   #888;
+  --danger:       #c0392b;
+  --danger-light: rgba(192,57,43,0.12);
+  --warn:         #d4a017;
+  --warn-light:   rgba(212,160,23,0.12);
+  --ok:           #27ae60;
+  --ok-light:     rgba(39,174,96,0.12);
+}
+
+/* ── Shell Layout ───────────────────────────────────────────────── */
+.shell {
+  display: flex;
+  min-height: 100vh;
+  background: var(--black);
+  font-family: system-ui, -apple-system, sans-serif;
+  color: var(--text);
+}
+
+/* ── Sidebar ────────────────────────────────────────────────────── */
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebarLogo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.75rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.logoMark {
+  width: 36px;
+  height: 36px;
+  background: var(--gold);
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.logoName {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.08em;
+}
+
+.logoSub {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.sidebarNav {
+  flex: 1;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 1rem;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  border-radius: 2px;
+  text-align: left;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.navItem:hover {
+  background: var(--surface2);
+  color: var(--text);
+}
+
+.navActive {
+  background: var(--gold-muted);
+  color: var(--gold-light);
+  border-left: 2px solid var(--gold);
+}
+
+.navActive:hover {
+  background: var(--gold-muted);
+}
+
+.navIcon {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* ── Sidebar Footer ─────────────────────────────────────────────── */
+.sidebarFooter {
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sidebarStat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.statLabel {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.statValue {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.statWarn { color: var(--warn); }
+
+.logoutBtn {
+  margin-top: 0.25rem;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+  border-radius: 2px;
+}
+
+.logoutBtn:hover {
+  border-color: var(--border-gold);
+  color: var(--gold-light);
+}
+
+/* ── Main Content ───────────────────────────────────────────────── */
+.main {
+  flex: 1;
+  padding: 2rem 2.5rem;
+  overflow-x: hidden;
+}
+
+/* ── Page Header ────────────────────────────────────────────────── */
+.pageHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.pageTitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.25rem;
+}
+
+.pageSub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.headerActions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+/* ── Buttons ────────────────────────────────────────────────────── */
+.btnPrimary {
+  background: var(--gold);
+  color: #000;
+  border: none;
+  padding: 0.65rem 1.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+.btnPrimary:hover:not(:disabled) { background: var(--gold-light); }
+.btnPrimary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btnSecondary {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 0.65rem 1.4rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+.btnSecondary:hover { border-color: var(--border-gold); color: var(--text); }
+
+.btnDanger {
+  background: var(--danger);
+  color: #fff;
+  border: none;
+  padding: 0.65rem 1.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+
+.btnDanger:hover:not(:disabled) { background: #e74c3c; }
+.btnDanger:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btnEdit {
+  background: var(--surface3);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s;
+  letter-spacing: 0.04em;
+}
+
+.btnEdit:hover { border-color: var(--gold); color: var(--gold-light); }
+
+.btnDeleteSm {
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid rgba(192,57,43,0.3);
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s;
+  letter-spacing: 0.04em;
+}
+
+.btnDeleteSm:hover { background: var(--danger-light); border-color: var(--danger); }
+
+/* ── Table ──────────────────────────────────────────────────────── */
+.tableWrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.table thead tr {
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border-gold);
+}
+
+.table th {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.table tbody tr {
+  transition: background 0.15s;
+}
+
+.table tbody tr:hover {
+  background: var(--surface2);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.rowSelected {
+  background: var(--gold-muted) !important;
+}
+
+.emptyCell {
+  text-align: center;
+  padding: 3rem !important;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ── Table Content ──────────────────────────────────────────────── */
+.checkbox {
+  accent-color: var(--gold);
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+.productThumb {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+  display: block;
+}
+
+.productName {
+  font-weight: 600;
+  color: #fff;
+  font-size: 0.85rem;
+  margin-bottom: 2px;
+}
+
+.productMeta {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.categoryTag {
+  display: inline-block;
+  background: var(--surface3);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.6rem;
+  font-size: 0.72rem;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+}
+
+.priceCell {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1rem;
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+.actionBtns {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* ── Badges ─────────────────────────────────────────────────────── */
+.badgeGold {
+  background: var(--gold-muted);
+  color: var(--gold-light);
+  border: 1px solid var(--border-gold);
+  padding: 0.15rem 0.5rem;
+  font-size: 0.65rem;
+  border-radius: 2px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.badgeOk {
+  background: var(--ok-light);
+  color: var(--ok);
+  border: 1px solid rgba(39,174,96,0.2);
+  padding: 0.2rem 0.6rem;
+  font-size: 0.72rem;
+  border-radius: 2px;
+}
+
+.badgeWarn {
+  background: var(--warn-light);
+  color: var(--warn);
+  border: 1px solid rgba(212,160,23,0.2);
+  padding: 0.2rem 0.6rem;
+  font-size: 0.72rem;
+  border-radius: 2px;
+}
+
+.badgeDanger {
+  background: var(--danger-light);
+  color: #e74c3c;
+  border: 1px solid rgba(192,57,43,0.2);
+  padding: 0.2rem 0.6rem;
+  font-size: 0.72rem;
+  border-radius: 2px;
+}
+
+/* ── Skeleton Loaders ───────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.skeletonBase {
+  background: linear-gradient(90deg, var(--surface2) 25%, var(--surface3) 50%, var(--surface2) 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 2px;
+}
+
+.skeletonRow td { padding: 0.85rem 1rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
+
+.skeletonCheck {
+  composes: skeletonBase;
+  width: 14px;
+  height: 14px;
+}
+
+.skeletonImg {
+  composes: skeletonBase;
+  width: 48px;
+  height: 48px;
+}
+
+.skeletonLine {
+  composes: skeletonBase;
+  height: 14px;
+  border-radius: 2px;
+}
+
+/* ── Modal Overlay ──────────────────────────────────────────────── */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* ── Product Modal ──────────────────────────────────────────────── */
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--border-gold);
+  border-radius: 2px;
+  width: 100%;
+  max-width: 860px;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideUp 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.modalTitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #fff;
+  margin: 0;
+}
+
+.modalClose {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.modalClose:hover { color: #fff; }
+
+.modalForm { padding: 2rem; }
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.formCol { display: flex; flex-direction: column; gap: 0; }
+
+/* ── Form Elements ──────────────────────────────────────────────── */
+.label {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+  margin-top: 1rem;
+  display: block;
+}
+
+.label:first-child { margin-top: 0; }
+
+.input {
+  width: 100%;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.65rem 0.85rem;
+  font-size: 0.85rem;
+  border-radius: 2px;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+  font-family: inherit;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.input::placeholder { color: var(--text-muted); opacity: 0.6; }
+
+.textarea { resize: vertical; min-height: 100px; }
+
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+
+/* ── Image Preview ──────────────────────────────────────────────── */
+.imagePreviewBox {
+  margin-top: 0.75rem;
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagePreview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.imgPlaceholder,
+.imgError,
+.imgSkeleton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.imgPlaceholder span { font-size: 2rem; opacity: 0.3; }
+.imgError span { font-size: 1.5rem; color: var(--warn); }
+
+/* ── Stock Indicator ────────────────────────────────────────────── */
+.stockIndicator {
+  margin-top: 0.75rem;
+  padding: 0.6rem 0.85rem;
+  border-radius: 2px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.stockOk {
+  background: var(--ok-light);
+  color: var(--ok);
+  border: 1px solid rgba(39,174,96,0.2);
+}
+
+.stockLow {
+  background: var(--warn-light);
+  color: var(--warn);
+  border: 1px solid rgba(212,160,23,0.2);
+}
+
+/* ── Modal Footer ───────────────────────────────────────────────── */
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ── Confirm Dialog ─────────────────────────────────────────────── */
+.confirmBox {
+  background: var(--surface);
+  border: 1px solid rgba(192,57,43,0.3);
+  border-radius: 2px;
+  padding: 2.5rem 2rem;
+  max-width: 400px;
+  text-align: center;
+  animation: slideUp 0.2s cubic-bezier(0.16,1,0.3,1);
+}
+
+.confirmIcon {
+  font-size: 2rem;
+  color: var(--danger);
+  margin-bottom: 1rem;
+}
+
+.confirmTitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #fff;
+  margin: 0 0 0.75rem;
+}
+
+.confirmMsg {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin: 0 0 1.75rem;
+}
+
+.confirmBtns {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+/* ── Password Gate ──────────────────────────────────────────────── */
+.gateOverlay {
+  position: fixed;
+  inset: 0;
+  background: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.gateBox {
+  background: var(--surface);
+  border: 1px solid var(--border-gold);
+  padding: 3rem 2.5rem;
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.gateLogo {
+  width: 56px;
+  height: 56px;
+  background: var(--gold);
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin: 0 auto 1.5rem;
+  border-radius: 2px;
+}
+
+.gateTitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #fff;
+  margin: 0 0 0.35rem;
+}
+
+.gateSub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 0 2rem;
+}
+
+.gateForm { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.gateInputWrap {}
+
+.gateInput {
+  width: 100%;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.8rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 2px;
+  box-sizing: border-box;
+  text-align: center;
+  letter-spacing: 0.15em;
+  transition: border-color 0.2s;
+  font-family: monospace;
+}
+
+.gateInput:focus { outline: none; border-color: var(--gold); }
+
+.gateBtn {
+  background: var(--gold);
+  color: #000;
+  border: none;
+  padding: 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+
+.gateBtn:hover { background: var(--gold-light); }
+
+.gateHint {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin: 1rem 0 0;
+  opacity: 0.5;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60%  { transform: translateX(-8px); }
+  40%, 80%  { transform: translateX(8px); }
+}
+
+.shake { animation: shake 0.5s ease; }
+
+/* ── Analytics View ─────────────────────────────────────────────── */
+.analyticsView {}
+
+.analyticsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.analyticsCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 1.5rem;
+  transition: border-color 0.2s;
+}
+
+.analyticsCard:hover { border-color: var(--border-gold); }
+
+.analyticsCardGold {
+  border-color: var(--border-gold);
+  background: linear-gradient(135deg, var(--surface) 0%, rgba(201,168,76,0.05) 100%);
+}
+
+.analyticsCardDanger { border-color: rgba(192,57,43,0.3); }
+.analyticsCardWarn   { border-color: rgba(212,160,23,0.3); }
+
+.analyticsLabel {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.analyticsValue {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.analyticsCardGold .analyticsValue { color: var(--gold-light); }
+
+.analyticsHint {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ── Stock Table ────────────────────────────────────────────────── */
+.stockTable {
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.stockTableTitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #fff;
+  margin: 0;
+  padding: 1.25rem 1.5rem;
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .shell { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: static; flex-direction: row; flex-wrap: wrap; }
+  .sidebarNav { flex-direction: row; padding: 0.75rem; flex: none; }
+  .sidebarFooter { flex-direction: row; flex: none; }
+  .main { padding: 1.25rem; }
+  .formGrid { grid-template-columns: 1fr; }
+  .analyticsGrid { grid-template-columns: repeat(2, 1fr); }
+}

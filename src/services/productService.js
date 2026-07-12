@@ -4,7 +4,6 @@
  * Talks to the Node.js backend via the shared api client.
  * Filtering (category / search) is handled server-side.
  */
-
 import api from './api';
 
 /**

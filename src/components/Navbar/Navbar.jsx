@@ -83,6 +83,9 @@ export default function Navbar() {
               </span>
             )}
           </Link>
+          <Link to="/admin-control" className={styles.adminLink} aria-label="Admin panel">
+            Admin
+          </Link>
         </div>
 
         {/* Mobile hamburger */}
@@ -110,6 +113,7 @@ export default function Navbar() {
           ) : (
             <Link to="/auth" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>Account</Link>
           )}
+          <Link to="/admin-control" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>Admin</Link>
         </div>
       )}
     </header>

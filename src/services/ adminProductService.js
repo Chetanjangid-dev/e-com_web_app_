@@ -1,40 +1,33 @@
 /**
- * productService.js — Product API layer
- *
- * Talks to the Node.js backend via the shared api client.
- * Filtering (category / search) is handled server-side.
+ * adminProductService.js — Admin-only Product CRUD API layer
  */
+
 import api from './api';
 
-/**
- * Fetch all products, with optional server-side filtering.
- * @param {{ category?: string, search?: string }} filters
- */
-export const getAllProducts = async (filters = {}) => {
-  const params = new URLSearchParams();
+export const createProduct = (data) => api.post('/products', data);
 
-  if (filters.category && filters.category !== 'All') {
-    params.set('category', filters.category);
+export const updateProduct = (id, data) => api.put(`/products/${id}`, data);
+
+export const deleteProduct = (id) => api.delete(`/products/${id}`);
+
+export const bulkDeleteProducts = (ids) =>
+  api.delete('/products/bulk', ids); // we need to pass body for delete
+
+// Override: DELETE with body
+export const bulkDelete = async (ids) => {
+  const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+  const token = localStorage.getItem('token');
+  const response = await fetch(`${BASE_URL}/products/bulk`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    },
+    body: JSON.stringify({ ids }),
+  });
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({ message: 'An error occurred.' }));
+    throw new Error(err.message || `HTTP ${response.status}`);
   }
-  if (filters.search && filters.search.trim()) {
-    params.set('search', filters.search.trim());
-  }
-
-  const qs = params.toString();
-  return api.get(`/products${qs ? `?${qs}` : ''}`);
-};
-
-/**
- * Fetch a single product by ID.
- * @param {number|string} id
- */
-export const getProductById = async (id) => {
-  return api.get(`/products/${id}`);
-};
-
-/**
- * Fetch available product categories (includes "All" as first entry).
- */
-export const getCategories = async () => {
-  return api.get('/products/categories');
+  return response.json();
 };

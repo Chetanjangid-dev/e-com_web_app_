@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { getAllProducts } from '@/services/productService';
-import { createProduct, updateProduct, deleteProduct, bulkDelete } from '@/services/adminProductService';
-import { useToast } from '@/hooks/useToast';
+import { getAllProducts } from '../../services/productService';
+import { createProduct, updateProduct, deleteProduct, bulkDelete } from '../../services/adminProductService';
+import { useToast } from '../../hooks/useToast';
 import styles from './AdminPanel.module.css';
 
 // ── Admin Password Gate ───────────────────────────────────────────────────────

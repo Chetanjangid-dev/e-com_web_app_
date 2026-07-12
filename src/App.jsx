@@ -5,25 +5,34 @@ import ProductDetail from './pages/ProductDetail/ProductDetail';
 import Cart from './pages/Cart/Cart';
 import Auth from './pages/Auth/Auth';
 import NotFound from './pages/NotFound/NotFound';
-import AdminPanel from './pages/AdminPanel';
-
-// Routes ke andar:
-
+import AdminPanel from './pages/Admin/AdminPanel';
 
 export default function App() {
   return (
     <>
-      <Navbar />
-      <main>
-        <Routes>
-          <Route path="/admin-control" element={<AdminPanel />} />
-          <Route path="/"              element={<Home />} />
-          <Route path="/product/:id"  element={<ProductDetail />} />
-          <Route path="/cart"         element={<Cart />} />
-          <Route path="/auth"         element={<Auth />} />
-          <Route path="*"             element={<NotFound />} />
-        </Routes>
-      </main>
+      <Routes>
+        {/* Admin Panel — full-screen, no Navbar */}
+        <Route path="/admin-control" element={<AdminPanel />} />
+
+        {/* Public store */}
+        <Route
+          path="/*"
+          element={
+            <>
+              <Navbar />
+              <main>
+                <Routes>
+                  <Route path="/"             element={<Home />} />
+                  <Route path="/product/:id"  element={<ProductDetail />} />
+                  <Route path="/cart"         element={<Cart />} />
+                  <Route path="/auth"         element={<Auth />} />
+                  <Route path="*"             element={<NotFound />} />
+                </Routes>
+              </main>
+            </>
+          }
+        />
+      </Routes>
     </>
   );
 }

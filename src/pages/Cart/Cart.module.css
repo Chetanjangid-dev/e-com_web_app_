@@ -176,8 +176,8 @@
   width: 100%;
   margin-top: 16px;
   padding: 13px 0;
-  background: var(--ink);
-  color: var(--white);
+  background: var(--solid);
+  color: var(--ink);
   border: none;
   font-size: 11px;
   font-family: var(--font-body);
@@ -233,7 +233,7 @@
 
 .btnGold {
   background: var(--gold);
-  color: var(--white);
+  color: var(--ink);
   border: none;
   padding: 12px 32px;
   font-size: 11px;

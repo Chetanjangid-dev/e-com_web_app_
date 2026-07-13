@@ -6,29 +6,33 @@
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body:    'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
-  --ink:          #1c1917;
-  --cream:        #faf9f7;
-  --paper:        #f0ede8;
-  --border:       #e8e3dc;
-  --muted:        #78716c;
-  --white:        #ffffff;
+  /* Dark theme — semantic roles kept the same, values inverted */
+  --ink:          #f3efe8;   /* primary text — light, on dark surfaces */
+  --cream:        #14120f;   /* page background — near-black */
+  --paper:        #1d1a15;   /* secondary surface (skeletons, subtle panels) */
+  --border:       #33302a;   /* borders/dividers, visible on dark bg */
+  --muted:        #a39a8c;   /* secondary text — soft warm gray */
+  --white:        #1c1917;   /* card/nav/hero surfaces — dark charcoal, not literal white */
 
-  --gold:         #b8924a;
-  --gold-light:   #d4ac6e;
+  --gold:         #c9a05c;
+  --gold-light:   #e0bd85;
 
-  --success:      #2d6a4f;
-  --danger:       #c0392b;
+  --success:      #4f9d76;
+  --danger:       #e0685a;
 
   --radius-sm:    4px;
   --radius-md:    6px;
   --radius-lg:    10px;
 
-  --shadow-sm:    0 2px 12px rgba(28, 25, 23, 0.07);
-  --shadow-md:    0 6px 28px rgba(28, 25, 23, 0.11);
-  --shadow-lg:    0 12px 48px rgba(28, 25, 23, 0.14);
+  --shadow-sm:    0 2px 12px rgba(0, 0, 0, 0.35);
+  --shadow-md:    0 6px 28px rgba(0, 0, 0, 0.45);
+  --shadow-lg:    0 12px 48px rgba(0, 0, 0, 0.55);
 
   --transition:   0.2s ease;
   --nav-height:   60px;
+
+  /* Fixed (non-theme-adaptive) solid-dark button surface, e.g. checkout/submit CTAs */
+  --solid:        #0d0b09;
 }
 
 /* ─── Reset ──────────────────────────────────────────────────────────────────── */

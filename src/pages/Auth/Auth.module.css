@@ -110,8 +110,8 @@
   width: 100%;
   padding: 13px 0;
   margin-top: 8px;
-  background: var(--ink);
-  color: var(--white);
+  background: var(--solid);
+  color: var(--ink);
   border: none;
   font-size: 11px;
   font-family: var(--font-body);

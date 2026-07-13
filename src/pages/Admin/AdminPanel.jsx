@@ -124,7 +124,7 @@ function ProductModal({ product, onClose, onSave, loading }) {
 
               <div className={styles.row2}>
                 <div>
-                  <label className={styles.label}>Price (£) *</label>
+                  <label className={styles.label}>Price (₹) *</label>
                   <input name="price" type="number" step="0.01" min="0"
                     value={form.price} onChange={handleChange}
                     className={styles.input} required placeholder="195.00" />
@@ -407,7 +407,7 @@ export default function AdminPanel() {
             <div className={styles.analyticsGrid}>
               <div className={`${styles.analyticsCard} ${styles.analyticsCardGold}`}>
                 <div className={styles.analyticsLabel}>Total Inventory Value</div>
-                <div className={styles.analyticsValue}>£{totalValue.toLocaleString('en-GB', { minimumFractionDigits: 2 })}</div>
+                <div className={styles.analyticsValue}>₹{totalValue.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</div>
                 <div className={styles.analyticsHint}>Price × Stock across all products</div>
               </div>
 
@@ -419,7 +419,7 @@ export default function AdminPanel() {
 
               <div className={styles.analyticsCard}>
                 <div className={styles.analyticsLabel}>Average Price</div>
-                <div className={styles.analyticsValue}>£{avgPrice.toFixed(2)}</div>
+                <div className={styles.analyticsValue}>₹{avgPrice.toFixed(2)}</div>
                 <div className={styles.analyticsHint}>Mean across catalogue</div>
               </div>
 
@@ -468,7 +468,7 @@ export default function AdminPanel() {
                         <td><strong>{cat}</strong></td>
                         <td>{catProds.length}</td>
                         <td>{catStock}</td>
-                        <td>£{catValue.toFixed(2)}</td>
+                        <td>₹{catValue.toFixed(2)}</td>
                         <td>
                           {catStock === 0
                             ? <span className={styles.badgeDanger}>Out of Stock</span>
@@ -561,7 +561,7 @@ export default function AdminPanel() {
                           </div>
                         </td>
                         <td><span className={styles.categoryTag}>{p.category}</span></td>
-                        <td className={styles.priceCell}>£{parseFloat(p.price).toFixed(2)}</td>
+                        <td className={styles.priceCell}>₹{parseFloat(p.price).toFixed(2)}</td>
                         <td>
                           <span className={
                             parseInt(p.stock) === 0 ? styles.badgeDanger :
@@ -609,5 +609,3 @@ export default function AdminPanel() {
     </div>
   );
 }
-
-

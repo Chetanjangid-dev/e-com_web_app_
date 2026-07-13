@@ -3,12 +3,12 @@
  */
 
 /**
- * Format a number as USD currency.
+ * Format a number as INR currency.
  * @param {number} amount
- * @returns {string}  e.g. "$289.00"
+ * @returns {string}  e.g. "₹289.00"
  */
 export const formatCurrency = (amount) =>
-  new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);
+  new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(amount);
 
 /**
  * Clamp a number between min and max.

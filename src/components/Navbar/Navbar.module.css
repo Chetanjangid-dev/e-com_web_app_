@@ -94,7 +94,7 @@
 /* ── Badge ───────────────────────────────────────────────── */
 .badge {
   background: var(--gold);
-  color: var(--white);
+  color: var(--ink);
   font-size: 10px;
   font-weight: 500;
   width: 18px;
